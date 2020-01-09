@@ -1,6 +1,6 @@
 // Variables
 let apple = 5; // Typescript knows the type of the variable because it was declared and initialized in the same statment
-let speed: String = 'fast';
+let speed: string = 'fast';
 let hasName: boolean = true;
 
 let nothingMuch: null = null;
@@ -10,7 +10,7 @@ let nothing: undefined = undefined;
 let now: Date = new Date();
 
 // Arrays
-let colors: String[] = ['red', 'green', 'blue'];
+let colors: string[] = ['red', 'green', 'blue'];
 let myNumbers: number[] = [1, 2, 3];
 let truths: boolean[] = [true, true, false];
 
