@@ -84968,14 +84968,40 @@ var _elevationFromPath = function (request, config, path, samples, callback, sen
     }
   }
 };
-},{"request":"node_modules/request/index.js","waitress":"node_modules/waitress/index.js","check-types":"node_modules/check-types/src/check-types.js","./utils/makeRequest":"node_modules/googlemaps/lib/utils/makeRequest.js","./utils/assignParams":"node_modules/googlemaps/lib/utils/assignParams.js","./utils/jsonParser":"node_modules/googlemaps/lib/utils/jsonParser.js","./utils/encodePolylines":"node_modules/googlemaps/lib/utils/encodePolylines.js","./config/getDefault":"node_modules/googlemaps/lib/config/getDefault.js","./config/constants":"node_modules/googlemaps/lib/config/constants.json","./placeSearchText":"node_modules/googlemaps/lib/placeSearchText.js","./placeSearchNearby":"node_modules/googlemaps/lib/placeSearchNearby.js","./placeDetails":"node_modules/googlemaps/lib/placeDetails.js","./placeAutocomplete":"node_modules/googlemaps/lib/placeAutocomplete.js","./geocode":"node_modules/googlemaps/lib/geocode.js","./reverseGeocode":"node_modules/googlemaps/lib/reverseGeocode.js","./distance":"node_modules/googlemaps/lib/distance.js","./directions":"node_modules/googlemaps/lib/directions.js","./elevationFromLocations":"node_modules/googlemaps/lib/elevationFromLocations.js","./staticMap":"node_modules/googlemaps/lib/staticMap.js","./streetView":"node_modules/googlemaps/lib/streetView.js","./timezone":"node_modules/googlemaps/lib/timezone.js"}],"src/index.ts":[function(require,module,exports) {
+},{"request":"node_modules/request/index.js","waitress":"node_modules/waitress/index.js","check-types":"node_modules/check-types/src/check-types.js","./utils/makeRequest":"node_modules/googlemaps/lib/utils/makeRequest.js","./utils/assignParams":"node_modules/googlemaps/lib/utils/assignParams.js","./utils/jsonParser":"node_modules/googlemaps/lib/utils/jsonParser.js","./utils/encodePolylines":"node_modules/googlemaps/lib/utils/encodePolylines.js","./config/getDefault":"node_modules/googlemaps/lib/config/getDefault.js","./config/constants":"node_modules/googlemaps/lib/config/constants.json","./placeSearchText":"node_modules/googlemaps/lib/placeSearchText.js","./placeSearchNearby":"node_modules/googlemaps/lib/placeSearchNearby.js","./placeDetails":"node_modules/googlemaps/lib/placeDetails.js","./placeAutocomplete":"node_modules/googlemaps/lib/placeAutocomplete.js","./geocode":"node_modules/googlemaps/lib/geocode.js","./reverseGeocode":"node_modules/googlemaps/lib/reverseGeocode.js","./distance":"node_modules/googlemaps/lib/distance.js","./directions":"node_modules/googlemaps/lib/directions.js","./elevationFromLocations":"node_modules/googlemaps/lib/elevationFromLocations.js","./staticMap":"node_modules/googlemaps/lib/staticMap.js","./streetView":"node_modules/googlemaps/lib/streetView.js","./timezone":"node_modules/googlemaps/lib/timezone.js"}],"src/CustomMap.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-require("googlemaps"); // import { User } from './User';
+var CustomMap =
+/** @class */
+function () {
+  function CustomMap(divId) {
+    this.googleMap = new google.maps.Map(document.getElementById(divId), {
+      zoom: 1,
+      center: {
+        lat: 0,
+        lng: 0
+      }
+    });
+  }
+
+  return CustomMap;
+}();
+
+exports.CustomMap = CustomMap;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+require("googlemaps");
+
+var CustomMap_1 = require("./CustomMap"); // import { User } from './User';
 // import { Company } from './Company';
 // const user = new User();
 // const company = new Company();
@@ -84983,14 +85009,8 @@ require("googlemaps"); // import { User } from './User';
 // console.log(company);
 
 
-new google.maps.Map(document.getElementById('map'), {
-  zoom: 1,
-  center: {
-    lat: 0,
-    lng: 0
-  }
-});
-},{"googlemaps":"node_modules/googlemaps/lib/index.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+new CustomMap_1.CustomMap('map');
+},{"googlemaps":"node_modules/googlemaps/lib/index.js","./CustomMap":"src/CustomMap.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -85018,7 +85038,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62978" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58945" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

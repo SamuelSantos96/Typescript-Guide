@@ -1,4 +1,5 @@
 import 'googlemaps';
+import { CustomMap } from './CustomMap';
 // import { User } from './User';
 // import { Company } from './Company';
 
@@ -8,10 +9,4 @@ import 'googlemaps';
 // console.log(user);
 // console.log(company);
 
-new google.maps.Map(document.getElementById('map'), {
-    zoom: 1,
-    center: {
-        lat: 0,
-        lng: 0
-    }
-});
+new CustomMap('map');
