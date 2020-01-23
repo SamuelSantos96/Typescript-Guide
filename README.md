@@ -50,11 +50,32 @@ Convert and change the following lines:
 
 "rootDir": "./src"
 
-### Execute
+### Convert
 ```
 tsc
 ```
-**Execute every time a change is made**
+**Converts every time a change is made**
 ```
 tsc --watch
+```
+
+## Convert and Run Service Concurrently
+
+Initialize npm
+```
+npm init --y
+```
+
+Install **nodemon** and **concurrently**
+```
+npm i -g nodemon concurrently
+```
+
+At package.json add the following scripts
+```json
+"scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+},
 ```
