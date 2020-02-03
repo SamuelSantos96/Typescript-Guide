@@ -1,8 +1,12 @@
-import { NumbersCollection } from './NumbersCollection';
+interface Sortable {
+    length: number;
+    compare(leftIndex: number, rightIndex: number): boolean;
+    swap(leftIndex: number, rightIndex: number): void;
+}
 
 export class Sorter {
     // Making the collection public is the same as defining the collection as an attribute of Sorter
-    constructor(public collection: NumbersCollection) {}
+    constructor(public collection: Sortable) {}
 
     sort(): void {
         // Destructuring assignment as ES6
