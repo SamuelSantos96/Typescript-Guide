@@ -2,7 +2,7 @@ export abstract class Sorter {
     abstract compare(leftIndex: number, rightIndex: number): boolean;
     abstract swap(leftIndex: number, rightIndex: number): void;
     abstract length: number;
-    
+
     sort(): void {
         // Destructuring assignment as ES6
         const { length } = this;
